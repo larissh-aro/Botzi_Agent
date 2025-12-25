@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  ai-agent:
+    build: .
+    container_name: ai-agent
+    environment:
+      - ENABLE_LLM=false
+      - AGENT_BASE_URL=http://host.docker.internal:5000/api/notes
+    volumes:
+      - ./:/app
+    tty: true
+    stdin_open: true
